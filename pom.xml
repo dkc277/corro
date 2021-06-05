@@ -55,6 +55,11 @@
     </dependency>
   </dependencies>
   <build>
+    <!-- <resources>
+      <resource>
+        <directory>report</directory>
+      </resource>
+    </resources> -->
     <plugins>
       <plugin>
         <groupId>io.quarkus</groupId>

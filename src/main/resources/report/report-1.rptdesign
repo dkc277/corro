@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.23" id="1">
+    <property name="createdBy">Eclipse BIRT Designer Version 4.8.0.v201805221921</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">queryText</property>
+            <property name="id">247</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
+    <property name="iconFile">/templates/first_report.gif</property>
+    <property name="cheatSheet">org.eclipse.birt.report.designer.ui.cheatsheet.firstreport</property>
+    <property name="bidiLayoutOrientation">ltr</property>
+    <property name="imageDPI">192</property>
+    <data-sources>
+        <oda-data-source extensionID="org.eclipse.datatools.connectivity.oda.flatfile" name="Cust Data Source" id="246">
+            <property name="URI">file:///home/kunal/git-repos/corro/target/classes/report/customerData.csv</property>
+            <property name="DELIMTYPE">COMMA</property>
+            <property name="CHARSET">UTF-8</property>
+            <property name="INCLCOLUMNNAME">YES</property>
+            <property name="INCLTYPELINE">NO</property>
+            <property name="TRAILNULLCOLS">NO</property>
+        </oda-data-source>
+    </data-sources>
+    <data-sets>
+        <oda-data-set extensionID="org.eclipse.datatools.connectivity.oda.flatfile.dataSet" name="Cust Data Set" id="247">
+            <property name="nullsOrdering">nulls lowest</property>
+            <list-property name="columnHints">
+                <structure>
+                    <property name="columnName">Customer</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Customer</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">First</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">First</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Last</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Last</text-property>
+                </structure>
+                <structure>
+                    <property name="columnName">Home</property>
+                    <property name="analysis">dimension</property>
+                    <text-property name="heading">Home</text-property>
+                </structure>
+            </list-property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">Customer</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">First</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">Last</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">Home</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <property name="dataSource">Cust Data Source</property>
+            <list-property name="resultSet">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">Customer</property>
+                    <property name="nativeName">Customer</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">First</property>
+                    <property name="nativeName">First</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">Last</property>
+                    <property name="nativeName">Last</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">Home</property>
+                    <property name="nativeName">Home</property>
+                    <property name="dataType">string</property>
+                    <property name="nativeDataType">12</property>
+                </structure>
+            </list-property>
+            <xml-property name="queryText"><![CDATA[select "Customer", "First", "Last", "Home" from "customerData.csv" : {"Customer","Customer",STRING;"First","First",STRING;"Last","Last",STRING;"Home","Home",STRING}]]></xml-property>
+            <xml-property name="designerValues"><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<model:DesignValues xmlns:design="http://www.eclipse.org/datatools/connectivity/oda/design" xmlns:model="http://www.eclipse.org/birt/report/model/adapter/odaModel">
+  <Version>2.0</Version>
+  <design:ResultSets derivedMetaData="true">
+    <design:resultSetDefinitions>
+      <design:resultSetColumns>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Customer</design:name>
+              <design:position>1</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Customer</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>First</design:name>
+              <design:position>2</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>First</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Last</design:name>
+              <design:position>3</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Last</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+        <design:resultColumnDefinitions>
+          <design:attributes>
+            <design:identifier>
+              <design:name>Home</design:name>
+              <design:position>4</design:position>
+            </design:identifier>
+            <design:nativeDataTypeCode>12</design:nativeDataTypeCode>
+            <design:precision>-1</design:precision>
+            <design:scale>-1</design:scale>
+            <design:nullability>Unknown</design:nullability>
+          </design:attributes>
+          <design:usageHints>
+            <design:label>Home</design:label>
+            <design:formattingHints/>
+          </design:usageHints>
+        </design:resultColumnDefinitions>
+      </design:resultSetColumns>
+      <design:criteria/>
+    </design:resultSetDefinitions>
+  </design:ResultSets>
+</model:DesignValues>]]></xml-property>
+        </oda-data-set>
+    </data-sets>
+    <styles>
+        <style name="report" id="110">
+            <property name="fontFamily">sans-serif</property>
+            <property name="fontSize">10pt</property>
+        </style>
+    </styles>
+    <page-setup>
+        <simple-master-page name="Simple MasterPage" id="2">
+            <page-footer>
+                <text id="3">
+                    <property name="contentType">html</property>
+                    <text-property name="content"><![CDATA[<value-of>new Date()</value-of>]]></text-property>
+                </text>
+            </page-footer>
+        </simple-master-page>
+    </page-setup>
+    <body>
+        <label id="300">
+            <text-property name="text">Customer List</text-property>
+        </label>
+        <table id="376">
+            <property name="dataSet">Cust Data Set</property>
+            <list-property name="boundDataColumns">
+                <structure>
+                    <property name="name">Customer</property>
+                    <text-property name="displayName">Customer</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Customer"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">First</property>
+                    <text-property name="displayName">First</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["First"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Last</property>
+                    <text-property name="displayName">Last</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Last"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="name">Home</property>
+                    <text-property name="displayName">Home</text-property>
+                    <expression name="expression" type="javascript">dataSetRow["Home"]</expression>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
+            <column id="400"/>
+            <column id="401"/>
+            <column id="402"/>
+            <column id="403"/>
+            <header>
+                <row id="377">
+                    <cell id="378">
+                        <label id="379">
+                            <text-property name="text">Customer</text-property>
+                        </label>
+                    </cell>
+                    <cell id="380">
+                        <label id="381">
+                            <text-property name="text">First</text-property>
+                        </label>
+                    </cell>
+                    <cell id="382">
+                        <label id="383">
+                            <text-property name="text">Last</text-property>
+                        </label>
+                    </cell>
+                    <cell id="384">
+                        <label id="385">
+                            <text-property name="text">Home</text-property>
+                        </label>
+                    </cell>
+                </row>
+            </header>
+            <detail>
+                <row id="386">
+                    <cell id="387">
+                        <data id="388">
+                            <property name="resultSetColumn">Customer</property>
+                        </data>
+                    </cell>
+                    <cell id="389">
+                        <data id="390">
+                            <property name="resultSetColumn">First</property>
+                        </data>
+                    </cell>
+                    <cell id="391">
+                        <data id="392">
+                            <property name="resultSetColumn">Last</property>
+                        </data>
+                    </cell>
+                    <cell id="393">
+                        <data id="394">
+                            <property name="resultSetColumn">Home</property>
+                        </data>
+                    </cell>
+                </row>
+            </detail>
+            <footer>
+                <row id="395">
+                    <cell id="396"/>
+                    <cell id="397"/>
+                    <cell id="398"/>
+                    <cell id="399"/>
+                </row>
+            </footer>
+        </table>
+    </body>
+</report>
