@@ -5,8 +5,10 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -24,7 +26,10 @@ import org.eclipse.birt.report.engine.api.PDFRenderOption;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 
 @Path("/hello")
+@ApplicationScoped
 public class GreetingResource {
+
+    private static final String REPORT_1 = "report-1";
 
     @ConfigProperty(name = "birt.report")
     String reportPath;
@@ -35,30 +40,28 @@ public class GreetingResource {
     @PostConstruct
     public void before() throws BirtException, FileNotFoundException {
         EngineConfig config = new EngineConfig();
-        try {
-            Platform.startup(config);
-        } catch (BirtException e) {
-            e.printStackTrace();
-        }
+        Platform.startup(config);
         IReportEngineFactory factory = (IReportEngineFactory) Platform
                 .createFactoryObject(IReportEngineFactory.EXTENSION_REPORT_ENGINE_FACTORY);
+        birtEngine = factory.createReportEngine(config);
+
+        System.out.println("factory:" + factory);
         birtEngine = factory.createReportEngine(config);
         loadReports();
     }
 
     public void loadReports() throws EngineException, FileNotFoundException {
-        File file = new File(this.getClass().getClassLoader()
-            .getResource(reportPath + File.separatorChar + "report-1.rptdesign").getFile());
-        System.out.println(new File(this.getClass().getClassLoader()
-            .getResource(reportPath + File.separatorChar + "customerData.csv").getPath()));
+        File file = new File("target/classes/report-1.rptdesign");
 
-        reports.put("report-1", birtEngine.openReportDesign(new FileInputStream(file)));
+        System.out.println(file.getPath());
+
+        reports.put(REPORT_1, birtEngine.openReportDesign(new FileInputStream(file)));
     }
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String hello() throws EngineException {
-        generatePDFReport(this.reports.get("report-1"));
+        generatePDFReport(this.reports.get(REPORT_1));
         return "Hello RESTEasy";
     }
 

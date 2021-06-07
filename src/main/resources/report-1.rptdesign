@@ -14,7 +14,7 @@
     <property name="imageDPI">192</property>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.datatools.connectivity.oda.flatfile" name="Cust Data Source" id="246">
-            <property name="URI">file:///home/kunal/git-repos/corro/target/classes/report/customerData.csv</property>
+            <property name="URI">file:///home/kunal/git-repos/corro/target/classes/customerData.csv</property>
             <property name="DELIMTYPE">COMMA</property>
             <property name="CHARSET">UTF-8</property>
             <property name="INCLCOLUMNNAME">YES</property>
